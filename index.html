@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="sap">SAP</span><span>Student Management System</span></div>
+    <div class="badge">ZSTUDENT_APP</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>STUDENT MANAGEMENT SYSTEM</h1>
+        <p>Student registration, course details and examination result management</p>
+      </div>
+      <div class="status-dot"><span></span> System Ready</div>
+    </section>
+
+    <section class="card">
+      <h2>Student Details</h2>
+      <form id="studentForm" autocomplete="off">
+        <div class="grid">
+          <label>Student ID *
+            <input id="studentId" type="text" placeholder="e.g. STU001">
+          </label>
+          <label>First Name *
+            <input id="firstName" type="text" placeholder="First name">
+          </label>
+          <label>Last Name *
+            <input id="lastName" type="text" placeholder="Last name">
+          </label>
+          <label>Date of Birth
+            <input id="dob" type="date">
+          </label>
+          <label>Gender
+            <select id="gender">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Email *
+            <input id="email" type="email" placeholder="student@example.com">
+          </label>
+          <label>Phone
+            <input id="phone" type="tel" placeholder="10 digit number">
+          </label>
+          <label>Course *
+            <select id="courseId">
+              <option value="">Select course</option>
+              <option value="CSE">CSE - Computer Science</option>
+              <option value="ECE">ECE - Electronics</option>
+              <option value="EEE">EEE - Electrical Engineering</option>
+              <option value="AIML">AIML - Artificial Intelligence</option>
+              <option value="CAI">CAI - Computer Applications & AI</option>
+            </select>
+          </label>
+          <label>Admission Date
+            <input id="admissionDate" type="date">
+          </label>
+          <label>Status
+            <select id="status">
+              <option>Active</option>
+              <option>Inactive</option>
+              <option>Graduated</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <div class="actions">
+          <button type="button" class="primary" id="createBtn">CREATE</button>
+          <button type="button" id="changeBtn">CHANGE</button>
+          <button type="button" id="displayBtn">DISPLAY</button>
+          <button type="button" class="danger" id="deleteBtn">DELETE</button>
+          <button type="button" id="clearBtn">CLEAR</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>Examination Marks</h2>
+          <p class="muted">Enter marks for the selected student.</p>
+        </div>
+        <button type="button" id="loadMarksBtn">LOAD STUDENT</button>
+      </div>
+
+      <div class="marks-grid">
+        <label>Student ID
+          <input id="marksStudentId" type="text" placeholder="STU001">
+        </label>
+        <label>Course
+          <select id="marksCourse">
+            <option value="">Select course</option>
+            <option>CSE</option><option>ECE</option><option>EEE</option><option>AIML</option><option>CAI</option>
+          </select>
+        </label>
+        <label>Subject
+          <input id="subject" type="text" placeholder="e.g. Data Structures">
+        </label>
+        <label>Marks
+          <input id="marks" type="number" min="0" step="0.01" placeholder="0">
+        </label>
+        <label>Maximum Marks
+          <input id="maxMarks" type="number" min="1" step="0.01" value="100">
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary" id="addMarksBtn">ADD / UPDATE MARKS</button>
+        <button type="button" id="clearMarksBtn">CLEAR MARKS</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>Student Result Report</h2>
+          <p class="muted">Percentage, grade and result are calculated automatically.</p>
+        </div>
+        <button type="button" id="reportBtn">REFRESH REPORT</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="reportTable">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Course</th>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Max</th>
+              <th>Percentage</th>
+              <th>Grade</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="emptyReport" class="empty">No result records yet.</div>
+    </section>
+  </main>
+
+  <footer>© ZSTUDENT_APP • Student Management System</footer>
+  <script src="script.js"></script>
+</body>
+</html>
